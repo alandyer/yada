@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Hello Phoenix!</title>
+    <title>YADA</title>
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
   </head>
 
@@ -15,9 +15,13 @@
     <div class="container" role="main">
       <div class="header">
         <ul class="nav nav-pills pull-right">
-          <li><a href="http://www.phoenixframework.org/docs">Get Started</a></li>
+          <%= if Plug.Conn.get_session(@conn, "current_user") do %>
+            <li><span>Welcome, <%= Plug.Conn.get_session(@conn, "current_user").username %>. <a href="/logout">Logout</a><span></li>
+          <%= else %>
+            <li><a href="/">Login</a></li>
+          <% end %>
         </ul>
-        <span class="logo"></span>
+        <h1 class=""><a href="/">YADA - Yet Another Do App</a></h1>
       </div>
 
       <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>

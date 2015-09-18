@@ -1,0 +1,48 @@
+<h2>Show task</h2>
+
+<ul>
+
+  <li>
+    <strong>Action:</strong>
+    <%= @task.action %>
+  </li>
+
+  <li>
+    <strong>Assigned to:</strong>
+    <%= @task.assigned_to %>
+  </li>
+
+  <li>
+    <strong>Submitted by:</strong>
+    <%= @task.submitted_by %>
+  </li>
+
+  <li>
+    <strong>Status:</strong>
+    <%= @task.status %>
+  </li>
+
+  <li>
+    <strong>Created:</strong>
+    <%= @task.created %>
+  </li>
+
+  <li>
+    <strong>Last updated:</strong>
+    <%= @task.last_updated %>
+  </li>
+
+  <li>
+    <strong>Updated by:</strong>
+    <%= @task.updated_by %>
+  </li>
+
+  <li>
+    <strong>Closed:</strong>
+    <%= @task.closed %>
+  </li>
+
+</ul>
+
+<%= link "Edit", to: task_path(@conn, :edit, @task) %>
+<%= link "Back", to: task_path(@conn, :index) %>
