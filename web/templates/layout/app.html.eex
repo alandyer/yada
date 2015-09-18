@@ -21,7 +21,7 @@
             <li><a href="/">Login</a></li>
           <% end %>
         </ul>
-        <h1 class=""><a href="/">YADA - Yet Another Do App</a></h1>
+        <h1 class=""><a href="/">YADA</a></h1>
       </div>
 
       <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>

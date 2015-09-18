@@ -18,8 +18,13 @@ defmodule Yada.TaskController do
 
   def create(conn, %{"task" => task_params}) do
     changeset = Task.changeset(%Task{}, task_params)
-    userchangeset = Task.change(changeset, %{submitted_by: get_session(conn, :current_user)})
+    userchangeset = Ecto.Changeset.change(changeset, %{submitted_by_id: get_session(conn, :current_user).id})
 
+    IO.puts inspect changeset
+
+    IO.puts "-----------------------------------------"
+
+    IO.puts inspect userchangeset
     case Repo.insert(userchangeset) do
       {:ok, _task} ->
         conn
