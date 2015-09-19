@@ -19,13 +19,13 @@
 <%= for task <- @tasks do %>
     <tr>
       <td><%= task.action %></td>
-      <td><%= if (task.assigned_to_id != nil), do: task.assigned_to_id else: "No one"%></td>
-      <td><%= if (task.submitted_by_id != nil), do: task.submitted_by_id else: "No one"%></td>
+      <td><%= task.assigned_to_id %></td>
+      <td><%= task.submitted_by_id %></td>
       <td><%= task.status %></td>
       <td><%= task.inserted_at %></td>
       <td><%= task.updated_at %></td>
-      <td><%= if (task.updated_by_id != nil), do: task.updated_by_id else: "No One"%></td>
-      <td><%= if task.closed != nil, do: task.closed else: "" %></td>
+      <td><%= task.updated_by_id %></td>
+      <td><%= task.closed %></td>
 
       <td class="text-right">
         <%= link "Show", to: task_path(@conn, :show, task), class: "btn btn-default btn-xs" %>
